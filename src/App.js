@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
-import { Form, Icon, Input, Button, Radio, Row, Col } from 'antd';
+import React, { useState } from 'react';
+import { Form, Input, Button, Radio, Row, Col } from 'antd';
 import logo from './images/logo.png';
 import './App.css';
 
 const LoginForm = props => {
+
+  const [submitted, setSubbmitted] = useState(false);
 
   function hasErrors(fieldsError) {
     return Object.keys(fieldsError).some(field => fieldsError[field]);
@@ -14,6 +16,7 @@ const LoginForm = props => {
     props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        setSubbmitted(true);
       }
     });
   }
@@ -31,7 +34,7 @@ const LoginForm = props => {
     }
   };
   return (
-    <div className="container">
+    <div className='container'>
       <div className="header">
         <Row type="flex" justify="space-around" align="middle">
           <Col xs={8} sm={8}><img className="logo" src={logo} alt=""/></Col>
@@ -42,18 +45,27 @@ const LoginForm = props => {
         <br />
         <Row>
           <Col span={24}>
-            Please fill out the details so we can confirm & you can chill with Frank!
+            Please fill out the details so we can confirm & you can party with Frank.
           </Col>
         </Row>
       </div>
       <br />
-      <Form {...formItemLayout} onSubmit={handleSubmit}>
+      <Row type="flex" justify="space-around" align="middle" className={submitted ? 'success-message' : 'success-message hidden'}>
+        <Col span={24}>
+          <div>
+            Thank you for filling the verification form.
+            <br />
+            Frank will contact you shortly!
+          </div>
+        </Col>
+      </Row>
+      <Form {...formItemLayout} onSubmit={handleSubmit} className={submitted ?'hidden' : ''}>
         <Form.Item label="Name">
           {getFieldDecorator('name', {
             rules: [
               {
                 required: true,
-                message: 'Please input your name.',
+                message: 'Please enter your name.',
               },
             ],
           })(<Input />)}
@@ -63,7 +75,7 @@ const LoginForm = props => {
             rules: [
               {
                 required: true,
-                message: 'Please input your mobile number.',
+                message: 'Please enter your mobile number.',
               },
             ],
           })(<Input addonBefore={'+91'} />)}
@@ -112,7 +124,7 @@ const LoginForm = props => {
               <Radio value="3">3</Radio>
               <Radio value="4">4</Radio>
               <Radio value="5">5</Radio>
-              <Radio value="5+">More than 5</Radio>
+              <Radio value="5+">5+</Radio>
             </Radio.Group>
           )}
         </Form.Item>
@@ -131,7 +143,7 @@ const LoginForm = props => {
               <Radio value="3">3</Radio>
               <Radio value="4">4</Radio>
               <Radio value="5">5</Radio>
-              <Radio value="5+">More than 5</Radio>
+              <Radio value="5+">5+</Radio>
             </Radio.Group>
           )}
         </Form.Item>
@@ -156,7 +168,7 @@ const LoginForm = props => {
             rules: [
               {
                 type: 'url',
-                message: 'Please enter a valid instagram url.',
+                message: 'Please enter a valid instagram link.',
               },
               {
                 required: true,
