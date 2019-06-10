@@ -1,0 +1,102 @@
+body {
+  background: url('./images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  font-family: "Poor Story", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  font-size: 18px;
+}
+
+h1, h2, h3, p {
+  color: #fff;
+}
+
+.logo {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  font-size: 25px;
+  padding: 0px 15px;
+}
+
+.header {
+  padding: 20px;
+  border-bottom: 2px solid #ff0066;
+}
+
+.App {
+  text-align: center;
+}
+
+.ant-form label {
+  font-size: 18px;
+}
+
+.ant-form-item {
+  margin-bottom: 10px;
+}
+
+.container {
+  background-color: rgba(0,0,0,0.85);
+  border-radius: 4px;
+}
+
+.ant-btn, .ant-form-explain, .ant-form-extra, .ant-input-group-addon, .ant-input {
+  font-size: 18px;
+}
+
+#root {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.ant-form {
+  padding: 10px 20px;
+}
+
+.ant-form-item-label {
+  text-align: left;
+}
+
+.ant-form-item-label > label, .ant-form-extra, .ant-radio-wrapper {
+  color: #fff !important;
+}
+
+.ant-input, .ant-radio-button-wrapper, .ant-input-group-addon {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.submit-btn {
+  width: 125px;
+}
+
+@media (min-width: 576px) {
+  #root {
+    width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  #root {
+    width: 75%;
+  }
+  .title {
+    padding: 0px 25px;
+  }
+  .ant-form {
+    padding: 10px 30px;
+  }
+  .header {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  #root {
+    width: 60%;
+  }
+}
